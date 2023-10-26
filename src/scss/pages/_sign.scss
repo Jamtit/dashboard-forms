@@ -1,0 +1,10 @@
+.sign-up{
+    color: pink;
+   
+}
+
+.sign-in{
+    &_additional{
+        display: none;
+    }
+}
