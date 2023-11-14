@@ -1,7 +1,84 @@
-.sign-up {
-  color: pink;
+.sign {
+  display: grid;
+  grid-template-columns: 20px 1fr 1fr;
+  margin-top: 20px;
+  box-shadow: 8px 10px 30px -6px rgba(0, 0, 0, 0.75);
+  align-items: center;
+  border-radius: 12px;
+}
+.sign_home {
+  top: -270px;
+}
+.sign_home .MuiSvgIcon-root {
+  color: #41c124;
+}
+.sign_home-have {
+  top: -270px;
+  z-index: 2;
+}
+.sign_home-have .MuiSvgIcon-root {
+  color: white;
+}
+.sign_form, .sign_form-have {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1s;
+}
+.sign_form-up, .sign_form-have-up {
+  color: red;
+}
+.sign_form-in_additional, .sign_form-have-in_additional {
+  display: none;
+}
+.sign_form_text, .sign_form-have_text {
+  margin-bottom: 40px;
+}
+.sign_form-have {
+  transform: translate(638px);
+}
+.sign_information, .sign_information-have {
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  height: 600px;
+  place-items: center;
+  text-align: center;
+  transition: transform 1s;
+  color: white;
+}
+.sign_information {
+  background-color: #41c124;
+}
+.sign_information_text {
+  position: relative;
+  right: 50px;
+}
+.sign_information-have {
+  background-color: #5f24b7;
+  transform: translate(-650px);
+}
+.sign_information-have_text {
+  position: relative;
+  right: 140px;
 }
 
-.sign-in_additional {
-  display: none;
+.spacer {
+  aspect-ratio: 200/300;
+  width: 200px;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.lay1 {
+  background-image: url("/public/wave_light_reg.svg");
+}
+
+.lay2 {
+  position: relative;
+  left: 230%;
+  background-image: url("/public/wave_light_log.svg");
 }/*# sourceMappingURL=index.css.map */

@@ -1,7 +1,9 @@
-import { Button, Box } from "@mui/material";
+import { Button, Box, Typography } from "@mui/material";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+
+import HomeIcon from "@mui/icons-material/Home";
 
 interface FormInputs {
   email: string;
@@ -23,49 +25,101 @@ export default function Sign() {
   };
 
   return (
-    <Box>
-      <form
-        className={haveAccount ? "sign-in" : "sign-up"}
-        onSubmit={handleSubmit(onSubmit)}
+    <Box className="sign">
+      <Button
+        className={haveAccount ? "sign_home-have" : "sign_home"}
+        onClick={() => navigate("/")}
       >
-        <input
-          placeholder="sample@mail.com"
-          {...register("email", {
-            required: "Email is required for the registration",
-          })}
-        />
-        <p>{errors.email?.message}</p>
-        <input
-          placeholder="Password"
-          type="password"
-          {...register("password", {
-            required: "Password is required for the registration",
-            minLength: {
-              value: 8,
-              message: "The password must be at least 8 symbols long",
-            },
-          })}
-        />
-        <p>{errors.password?.message}</p>
-        <Box className={haveAccount ? "sign-in_additional" : "sign-up"}>
+        <HomeIcon />
+      </Button>
+      <Box className={haveAccount ? "sign_form-have" : "sign_form"}>
+        <Box className="sign_form_text">
+          <Typography
+            variant="h5"
+            sx={{ color: `${haveAccount ? "#5f24b7" : "#41c124"}` }}
+          >
+            {haveAccount ? "Welcome back!" : "Welcome!"}
+          </Typography>
+          <Typography>
+            {haveAccount
+              ? "Please fill in your credentials to continue"
+              : "Please fill in the form to create an account"}
+          </Typography>
+        </Box>
+        <form
+          className={haveAccount ? "sign_form-in" : "sign_form-up"}
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <input
+            placeholder="sample@mail.com"
+            {...register("email", {
+              required: "Email is required",
+            })}
+          />
+          <p>{errors.email?.message}</p>
+          <input
+            placeholder="Password"
             type="password"
-            placeholder="Confirm Password"
-            {...register("confirmPassword", {
-              required: "Confirm your password",
+            {...register("password", {
+              required: "Password is required",
               minLength: {
                 value: 8,
                 message: "The password must be at least 8 symbols long",
               },
             })}
           />
-          <p>{errors.confirmPassword?.message}</p>
+          <p>{errors.password?.message}</p>
+          <Box className={haveAccount ? "sign_form-in_additional" : "sign-up"}>
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              {...register("confirmPassword", {
+                required: "Confirm your password",
+                minLength: {
+                  value: 8,
+                  message: "The password must be at least 8 symbols long",
+                },
+              })}
+            />
+            <p>{errors.confirmPassword?.message}</p>
+          </Box>
+          <Button
+            variant="outlined"
+            type="submit"
+            onClick={() => (isValid ? navigate("/user") : "")}
+          >
+            {haveAccount ? "Sign-in" : "Sign-up"}
+          </Button>
+        </form>
+      </Box>
+      <Box
+        className={haveAccount ? "sign_information-have" : "sign_information"}
+      >
+        <div className={haveAccount ? "spacer lay2" : "spacer lay1"}></div>
+        <Box
+          className={
+            haveAccount ? "sign_information-have_text" : "sign_information_text"
+          }
+        >
+          <Typography>
+            {haveAccount
+              ? "Still, don't have an account?"
+              : "Oh, you already have an account?"}
+          </Typography>
+          <Typography>
+            {haveAccount
+              ? "Do not be scared and create one!"
+              : "Feel free to use that one!"}
+          </Typography>
+          <Button
+            sx={{ mt: "50px" }}
+            variant="outlined"
+            onClick={() => setHaveAccount(!haveAccount)}
+          >
+            {haveAccount ? "Create one" : "Use already existing one"}
+          </Button>
         </Box>
-        <input type="submit" />
-      </form>
-      <Button variant="outlined" onClick={() => setHaveAccount(!haveAccount)}>
-        Have an account already? Sign-In!
-      </Button>
+      </Box>
     </Box>
   );
 }

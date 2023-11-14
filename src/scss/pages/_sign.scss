@@ -1,10 +1,119 @@
-.sign-up{
-    color: pink;
-   
+$paddingForm: 15px;
+$regBackground: #41c124;
+$logBackground: #5f24b7;
+
+@mixin formBorders{
+    border-radius: 12px;
 }
 
-.sign-in{
-    &_additional{
-        display: none;
+
+.sign{
+
+    display: grid;
+    grid-template-columns: 20px 1fr 1fr;
+    margin-top: 20px;
+    box-shadow: 8px 10px 30px -6px rgba(0,0,0,0.75);
+    align-items: center;
+    @include formBorders();
+
+    &_home{
+        top: -270px;
+
+        .MuiSvgIcon-root{
+            color: $regBackground;
+        }
     }
+
+    &_home-have{
+        top: -270px;
+        z-index: 2;
+
+        .MuiSvgIcon-root{
+            color: white;
+        }
+        
+    }
+
+
+    
+    &_form, &_form-have{
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        transition: transform 1s;
+        &-up{
+            color: red;
+        }
+        &-in{
+            // background-color: lightcoral;
+            &_additional{
+                display: none;
+            }
+        }
+
+        &_text{
+            margin-bottom: 40px;
+
+        }
+
+    }
+    
+    &_form-have{
+        transform: translate(638px);
+    }
+    
+    &_information, &_information-have{
+        @include formBorders();
+        display: grid;
+        grid-template-columns: auto 1fr;
+        height: 600px;
+        place-items: center;
+        text-align: center;
+        transition: transform 1s;
+        color: white;
+
+    }
+
+    &_information{
+        background-color: $regBackground;
+
+        &_text{
+            position: relative;
+            right: 50px;
+        }
+        
+    }
+
+    &_information-have{
+        background-color: $logBackground;
+        transform: translate(-650px);
+
+        &_text{
+            position: relative;
+            right: 140px;
+        }
+
+        
+    }
+
+
+}
+
+.spacer{
+    aspect-ratio: 200/300;
+    width: 200px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.lay1{
+    background-image: url('/public/wave_light_reg.svg');
+}
+
+.lay2{
+    position: relative;
+    left: 230%;
+    background-image: url('/public/wave_light_log.svg');
 }
