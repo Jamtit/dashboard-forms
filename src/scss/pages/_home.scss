@@ -1,0 +1,16 @@
+.home{
+    max-width: 100vw;
+    &_container{
+        margin-top: 200px;
+
+        &-welcome, &-goal{
+            height: 500px;
+        }
+
+        &-welcome{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+    }
+}

@@ -1,31 +1,28 @@
 $paddingForm: 15px;
-$regBackground: #41c124;
-$logBackground: #5f24b7;
+@use "../abstracts/variables" as variables;
+@use "../abstracts/mixins" as mixi;
 
-@mixin formBorders{
-    border-radius: 12px;
-}
 
 
 .sign{
 
     display: grid;
-    grid-template-columns: 20px 1fr 1fr;
-    margin-top: 20px;
-    box-shadow: 8px 10px 30px -6px rgba(0,0,0,0.75);
+    grid-template-columns: 1.25rem 1fr 1fr;
+    margin-top: 5.625rem;
+    box-shadow: .5rem .625rem 1.875rem -.375rem rgba(0,0,0,0.75);
     align-items: center;
-    @include formBorders();
+    @include mixi.formBorders();
 
     &_home{
-        top: -270px;
+        top: -16.875rem;
 
         .MuiSvgIcon-root{
-            color: $regBackground;
+            color: variables.$regBackground;
         }
     }
 
     &_home-have{
-        top: -270px;
+        top: -16.875rem;
         z-index: 2;
 
         .MuiSvgIcon-root{
@@ -53,21 +50,21 @@ $logBackground: #5f24b7;
         }
 
         &_text{
-            margin-bottom: 40px;
+            margin-bottom: 2.5rem;
 
         }
 
     }
     
     &_form-have{
-        transform: translate(638px);
+        transform: translate(38.4375rem);
     }
     
     &_information, &_information-have{
-        @include formBorders();
+        @include mixi.formBorders();
         display: grid;
         grid-template-columns: auto 1fr;
-        height: 600px;
+        height: 37.5rem;
         place-items: center;
         text-align: center;
         transition: transform 1s;
@@ -76,22 +73,22 @@ $logBackground: #5f24b7;
     }
 
     &_information{
-        background-color: $regBackground;
+        background-color: variables.$regBackground;
 
         &_text{
             position: relative;
-            right: 50px;
+            right: 3.125rem;
         }
         
     }
 
     &_information-have{
-        background-color: $logBackground;
-        transform: translate(-650px);
+        background-color: variables.$logBackground;
+        transform: translate(-36.6875rem);
 
         &_text{
             position: relative;
-            right: 140px;
+            right: 8.75rem;
         }
 
         
@@ -102,7 +99,7 @@ $logBackground: #5f24b7;
 
 .spacer{
     aspect-ratio: 200/300;
-    width: 200px;
+    width: 12.5rem;
     height: 100%;
     background-repeat: no-repeat;
     background-position: center;

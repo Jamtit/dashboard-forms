@@ -87,6 +87,7 @@ export default function Sign() {
             variant="outlined"
             type="submit"
             onClick={() => (isValid ? navigate("/user") : "")}
+            disabled={isValid ? false : true}
           >
             {haveAccount ? "Sign-in" : "Sign-up"}
           </Button>

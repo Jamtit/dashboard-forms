@@ -1,10 +1,14 @@
-import "./App.css";
 import {
   createBrowserRouter,
   createRoutesFromElements,
   RouterProvider,
   Route,
 } from "react-router-dom";
+
+//Components
+import { Container } from "@mui/material";
+
+//Routes
 import Root from "./routes/Root";
 import Sign from "./routes/Sign";
 import Home from "./routes/Home";
@@ -22,9 +26,9 @@ function App() {
     )
   );
   return (
-    <div>
+    <Container>
       <RouterProvider router={router} />
-    </div>
+    </Container>
   );
 }
 
