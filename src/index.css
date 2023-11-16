@@ -5,6 +5,19 @@ body {
   overflow-x: hidden;
 }
 
+.MuiPaper-root navbar {
+  background-image: none;
+}
+
+.navbar {
+  background: rgb(95, 36, 183);
+  background: linear-gradient(90deg, rgb(95, 36, 183) 0%, rgb(95, 36, 183) 38%, rgb(65, 193, 36) 64%, rgb(65, 193, 36) 100%);
+}
+.navbar_tools {
+  display: flex;
+  justify-content: space-between;
+}
+
 .home {
   max-width: 100vw;
 }
@@ -69,6 +82,9 @@ body {
   transition: transform 1s;
   color: white;
 }
+.sign_information .MuiButtonBase-root-MuiButton-root.Mui-disabled, .sign_information-have .MuiButtonBase-root-MuiButton-root.Mui-disabled {
+  color: black;
+}
 .sign_information {
   background-color: #41c124;
 }
@@ -95,11 +111,11 @@ body {
 }
 
 .lay1 {
-  background-image: url("/public/wave_light_reg.svg");
+  background-image: url("/wave_light_reg.svg");
 }
 
 .lay2 {
   position: relative;
   left: 230%;
-  background-image: url("/public/wave_light_log.svg");
+  background-image: url("/wave_light_log.svg");
 }/*# sourceMappingURL=index.css.map */

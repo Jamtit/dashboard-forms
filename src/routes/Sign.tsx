@@ -1,9 +1,10 @@
 import { Button, Box, Typography } from "@mui/material";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 import HomeIcon from "@mui/icons-material/Home";
+import { ModeContext } from "../App";
 
 interface FormInputs {
   email: string;
@@ -13,6 +14,7 @@ interface FormInputs {
 
 export default function Sign() {
   const [haveAccount, setHaveAccount] = useState(false);
+  const { darkMode } = useContext(ModeContext);
   const {
     register,
     handleSubmit,
@@ -84,6 +86,7 @@ export default function Sign() {
             <p>{errors.confirmPassword?.message}</p>
           </Box>
           <Button
+            sx={{ color: `${darkMode ? "primary.main" : "secondary.main"}` }}
             variant="outlined"
             type="submit"
             onClick={() => (isValid ? navigate("/user") : "")}

@@ -3,7 +3,8 @@
 ## What will be done
 
 - Simple Home Page UI for the user
-- Ability to navigate to the sing-in | sign-up pages | home page
+  - Home Page must be scrollable and all of the contents should be there.
+  - A button for quick access to different parts of home page should be working.
 - Ability to sign-in or sign-up
 - Different UI for Admins and Users
 - Simple Editorial Functions for the Users
