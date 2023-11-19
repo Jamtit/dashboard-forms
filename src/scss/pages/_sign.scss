@@ -10,25 +10,19 @@ $paddingForm: 15px;
     grid-template-columns: 1.25rem 1fr 1fr;
     margin-top: 5.625rem;
     box-shadow: .5rem .625rem 1.875rem -.375rem rgba(0,0,0,0.75);
-    align-items: center;
+    width: 75rem;
+    place-self: center;
     @include mixi.formBorders();
 
-    &_home{
-        top: -16.875rem;
+    &_home, &_home-have{
+        top: .3125rem;
+        height: 3.125rem;
+        @include mixi.formBorders();
 
-        .MuiSvgIcon-root{
-            color: variables.$regBackground;
-        }
     }
 
     &_home-have{
-        top: -16.875rem;
         z-index: 2;
-
-        .MuiSvgIcon-root{
-            color: white;
-        }
-        
     }
 
 
@@ -70,9 +64,6 @@ $paddingForm: 15px;
         transition: transform 1s;
         color: white;
 
-        .MuiButtonBase-root-MuiButton-root.Mui-disabled{
-            color: black;
-        }
 
     }
 
@@ -88,7 +79,7 @@ $paddingForm: 15px;
 
     &_information-have{
         background-color: variables.$logBackground;
-        transform: translate(-36.6875rem);
+        transform: translate(-38.1875rem);
 
         &_text{
             position: relative;
@@ -112,9 +103,18 @@ $paddingForm: 15px;
 .lay1{
     background-image: url('/wave_light_reg.svg');
 }
+.lay1-dark{
+    background-image: url('/wave_dark_reg.svg');
+}
 
 .lay2{
     position: relative;
     left: 230%;
     background-image: url('/wave_light_log.svg');
+}
+
+.lay2-dark{
+    position: relative;
+    left: 230%;
+    background-image: url('/wave_dark_log.svg');
 }

@@ -1,10 +1,18 @@
-import { Button, Box, Typography } from "@mui/material";
+// React
 import { useState, useContext } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { ModeContext } from "../App";
+
+// React Router Dom
 import { useNavigate } from "react-router-dom";
 
+// React Hook Forms
+import { useForm, SubmitHandler } from "react-hook-form";
+
+// Material
+import { Button, Box, Typography } from "@mui/material";
+
+//Icons
 import HomeIcon from "@mui/icons-material/Home";
-import { ModeContext } from "../App";
 
 interface FormInputs {
   email: string;
@@ -29,6 +37,13 @@ export default function Sign() {
   return (
     <Box className="sign">
       <Button
+        sx={{
+          color: haveAccount
+            ? darkMode
+              ? "background.default"
+              : "white"
+            : "primary.main",
+        }}
         className={haveAccount ? "sign_home-have" : "sign_home"}
         onClick={() => navigate("/")}
       >
@@ -99,7 +114,17 @@ export default function Sign() {
       <Box
         className={haveAccount ? "sign_information-have" : "sign_information"}
       >
-        <div className={haveAccount ? "spacer lay2" : "spacer lay1"}></div>
+        <div
+          className={
+            haveAccount
+              ? darkMode
+                ? "spacer lay2-dark"
+                : "spacer lay2"
+              : darkMode
+              ? "spacer lay1-dark"
+              : "spacer lay1"
+          }
+        ></div>
         <Box
           className={
             haveAccount ? "sign_information-have_text" : "sign_information_text"
@@ -116,7 +141,14 @@ export default function Sign() {
               : "Feel free to use that one!"}
           </Typography>
           <Button
-            sx={{ mt: "50px" }}
+            sx={{
+              mt: "50px",
+              color: darkMode ? "text.primary" : "white",
+              borderColor: darkMode ? "text.primary" : "white",
+              "&:hover": {
+                borderColor: darkMode ? "text.secondary" : "#d4d4d4",
+              },
+            }}
             variant="outlined"
             onClick={() => setHaveAccount(!haveAccount)}
           >

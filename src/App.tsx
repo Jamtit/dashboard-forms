@@ -1,13 +1,20 @@
 // React
 import { useState, createContext } from "react";
 
-// Router
+// React Router Dom
 import {
   createBrowserRouter,
   createRoutesFromElements,
   RouterProvider,
   Route,
 } from "react-router-dom";
+
+//Routes
+import Root from "./routes/Root";
+import Sign from "./routes/Sign";
+import Home from "./routes/Home";
+import Error from "./routes/Error";
+import User from "./routes/User";
 
 //Material
 import {
@@ -16,13 +23,6 @@ import {
   ThemeProvider,
   CssBaseline,
 } from "@mui/material";
-
-//Routes
-import Root from "./routes/Root";
-import Sign from "./routes/Sign";
-import Home from "./routes/Home";
-import Error from "./routes/Error";
-import User from "./routes/User";
 
 interface DarkMode {
   darkMode: boolean;
@@ -71,6 +71,16 @@ function App() {
   const darkTheme = createTheme({
     palette: {
       mode: "dark",
+      primary: {
+        main: "#41C124",
+        light: "#65bf50",
+        dark: "#31991a",
+      },
+      secondary: {
+        main: "#5f24b7",
+        light: "#7247b3",
+        dark: "#45178a",
+      },
       action: {
         disabled: "rgba(78, 79, 77, 0.7)",
       },
@@ -93,7 +103,12 @@ function App() {
     >
       <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
         <CssBaseline />
-        <Container>
+        <Container
+          sx={{
+            "@media (min-width: 1200px)": { maxWidth: "100vw" },
+            "@media (min-width: 600px)": { paddingRight: 0, paddingLeft: 0 },
+          }}
+        >
           <RouterProvider router={router} />
         </Container>
       </ThemeProvider>

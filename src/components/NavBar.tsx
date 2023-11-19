@@ -1,10 +1,16 @@
-import { AppBar, Button, IconButton, Toolbar, Box } from "@mui/material";
-import LightModeIcon from "@mui/icons-material/LightMode";
-import NightlightIcon from "@mui/icons-material/Nightlight";
+// React
 import { useContext } from "react";
 import { ModeContext } from "../App";
 
+// React Router Dom
 import { useNavigate } from "react-router-dom";
+
+// Material
+import { AppBar, Button, IconButton, Toolbar, Box } from "@mui/material";
+
+// Icons
+import LightModeIcon from "@mui/icons-material/LightMode";
+import NightlightIcon from "@mui/icons-material/Nightlight";
 
 export default function Navbar() {
   const navigate = useNavigate();

@@ -1,10 +1,10 @@
-.home{
-    max-width: 100vw;
-    &_container{
-        margin-top: 200px;
+@use '../abstracts/variables' as variables;
 
-        &-welcome, &-goal{
-            height: 500px;
+.home{
+    &_container{
+        margin-top: 12.5rem;
+        &-goal, &-faq{
+            height: 31.25rem;
         }
 
         &-welcome{
@@ -12,5 +12,53 @@
             grid-template-columns: 1fr 1fr;
         }
 
+        &-goal{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 43.75rem;
+            background-color: variables.$regBackground;
+        }
+
+        &-faq{
+            display: grid;
+            place-content: center;
+            padding-block: 1.875rem;
+            margin-top: 5.625rem;
+
+            .MuiAccordionDetails-root{
+                background-color: variables.$regBackground;
+                color: white;
+                text-align: left;
+            }
+        }
+
     }
 }
+
+
+.wave{
+    aspect-ratio: 900/200;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.goal-light{
+    background-image: url('/wave_goal_light.svg');
+}
+.goal-dark{
+    background-image: url('/wave_goal_dark.svg');
+}
+
+.goal-light-bot{
+    background-image: url('/wave_goal_light_bot.svg');
+}
+.goal-dark-bot{
+    background-image: url('/wave_goal_dark_bot.svg');
+}
+
+.goal-dark-bot, .goal-light-bot{
+    height: 18.75rem;
+}
+
