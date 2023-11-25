@@ -4,6 +4,7 @@ import { ModeContext } from "../App";
 
 // Components
 import Navbar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 // Material
 import {
@@ -65,7 +66,7 @@ export default function Home() {
             </List>
           </Box>
         </Box>
-        <Box className="home_container-goal">
+        <Box className="home_container-goal" id="home_container-goal">
           <div
             className={darkMode ? "wave goal-dark" : "wave goal-light"}
           ></div>
@@ -81,7 +82,7 @@ export default function Home() {
             className={darkMode ? "wave goal-dark-bot" : "wave goal-light-bot"}
           ></div>
         </Box>
-        <Box className="home_container-faq">
+        <Box className="home_container-faq" id="home_container-faq">
           <Typography variant="h3" sx={{ marginBlock: "30px" }}>
             Frequently Asked
             <Typography
@@ -138,6 +139,7 @@ export default function Home() {
           </Box>
         </Box>
       </Box>
+      <Footer />
     </Container>
   );
 }

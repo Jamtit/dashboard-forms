@@ -1,0 +1,44 @@
+@use '../abstracts/variables' as variables;
+
+.footer{
+    &_container{
+        background-color: variables.$logBackground;
+
+        display: grid;
+        grid-template-rows: 200px 1fr 300px;
+
+        &_header{
+            display: flex;
+            justify-content: space-evenly;
+
+            .MuiSvgIcon-root:hover{
+                color: variables.$logButtonHover
+            }
+        }
+        &_body{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            &-useful{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+.bottom{
+    aspect-ratio: 900/100;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: 0 90%;
+    background-size: cover;
+    height: 150px;
+}
+.footer-light{
+    background-image: url('/wave_footer_light.svg');
+}
+.footer-dark{
+    background-image: url('/wave_footer_dark.svg');
+
+}

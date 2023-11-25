@@ -15,6 +15,11 @@ import NightlightIcon from "@mui/icons-material/Nightlight";
 export default function Navbar() {
   const navigate = useNavigate();
   const { darkMode, switchMode } = useContext(ModeContext);
+
+  const goToFaq = () => {
+    let faqDiv = document.getElementById("home_container-faq");
+    faqDiv?.scrollIntoView({ behavior: "smooth", block: "end" });
+  };
   return (
     <AppBar
       className="navbar"
@@ -26,6 +31,7 @@ export default function Navbar() {
       <Toolbar className="navbar_tools">
         <Box className="navbar_tools-navigation">
           <Button onClick={() => navigate("/sign")}>Join Us</Button>
+          <Button onClick={goToFaq}>FAQ</Button>
         </Box>
         <IconButton
           sx={{ "&.MuiSvgIcon-root:hover": { backgroundColor: "white" } }}

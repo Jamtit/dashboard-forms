@@ -18,6 +18,44 @@ body {
   justify-content: space-between;
 }
 
+.footer_container {
+  background-color: #5f24b7;
+  display: grid;
+  grid-template-rows: 200px 1fr 300px;
+}
+.footer_container_header {
+  display: flex;
+  justify-content: space-evenly;
+}
+.footer_container_header .MuiSvgIcon-root:hover {
+  color: #361469;
+}
+.footer_container_body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.footer_container_body-useful {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom {
+  aspect-ratio: 900/100;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: 0 90%;
+  background-size: cover;
+  height: 150px;
+}
+
+.footer-light {
+  background-image: url("/wave_footer_light.svg");
+}
+
+.footer-dark {
+  background-image: url("/wave_footer_dark.svg");
+}
+
 .home_container {
   margin-top: 12.5rem;
 }
