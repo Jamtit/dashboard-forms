@@ -14,4 +14,3 @@ This website was made to try and learn how to create more unique websites and cr
 ## TODO:
 
 - Create a button, that when you scroll it appears and can take you quickly to the top
-- Create a button in the navbar for contacts, it will scroll you down to the footer

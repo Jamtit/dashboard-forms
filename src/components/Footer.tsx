@@ -7,7 +7,15 @@ import { ModeContext } from "../App";
 import { useNavigate } from "react-router-dom";
 
 // Material
-import { Container, Box, Typography, IconButton, Button } from "@mui/material";
+import {
+  Container,
+  Box,
+  Typography,
+  IconButton,
+  Button,
+  Link,
+  Divider,
+} from "@mui/material";
 
 // Icons
 
@@ -15,6 +23,8 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import MailIcon from "@mui/icons-material/Mail";
+import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 
 export default function Footer() {
   const { darkMode } = useContext(ModeContext);
@@ -64,22 +74,90 @@ export default function Footer() {
         </Box>
         <Box className="footer_container_body">
           <Box className="footer_container_body-useful">
-            <Typography>Useful links</Typography>
-            <Button disableRipple onClick={() => navigate("/sign")}>
+            <Typography variant="h6">Useful links</Typography>
+            <Button
+              disableRipple
+              onClick={() => navigate("/sign")}
+              sx={{
+                "&:hover": {
+                  backgroundColor: "transparent",
+                  color: "primary.dark",
+                },
+                width: "100px",
+              }}
+            >
               Join Us
             </Button>
-            <Button disableRipple onClick={scrollToFAQ}>
+            <Button
+              disableRipple
+              onClick={scrollToFAQ}
+              sx={{
+                "&:hover": {
+                  backgroundColor: "transparent",
+                  color: "primary.dark",
+                },
+                width: "100px",
+              }}
+            >
               FAQ
             </Button>
-            <Button disableRipple onClick={scrollToGoal}>
+            <Button
+              disableRipple
+              onClick={scrollToGoal}
+              sx={{
+                "&:hover": {
+                  backgroundColor: "transparent",
+                  color: "primary.dark",
+                },
+                width: "100px",
+              }}
+            >
               Goal
             </Button>
           </Box>
-          <Box>
-            <Typography>Contact us</Typography>
+          <Box
+            className="footer_container_body-contact"
+            id="footer_container_body-contact"
+          >
+            <Typography variant="h6">Contact us</Typography>
+            <Box className="footer_container_body-contact--box">
+              <MailIcon sx={{ color: "primary.main" }} />
+              <Typography className="footer_container_body-contact--box_mail">
+                interesting@mail.com
+              </Typography>
+            </Box>
+            <Box className="footer_container_body-contact--box">
+              <PhoneAndroidIcon
+                sx={{
+                  position: "relative",
+                  right: "29px",
+                  color: "primary.main",
+                }}
+              />
+              <Typography className="footer_container_body-contact--box_number">
+                +3701111111
+              </Typography>
+            </Box>
           </Box>
         </Box>
-        <Box className="footer_container_other">Contact Info</Box>
+        <Box className="footer_container_other">
+          <Typography>&#169; All Rights Are Reserved By The Company</Typography>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Link>Cookie Policy</Link>
+            <Divider
+              orientation="vertical"
+              sx={{ marginInline: "10px" }}
+              flexItem
+            />
+            <Link>Privacy Policy</Link>
+            <Divider
+              orientation="vertical"
+              sx={{ marginInline: "10px" }}
+              flexItem
+            />
+            <Link>Terms of Use and Sale</Link>
+          </Box>
+        </Box>
       </Box>
     </Container>
   );

@@ -18,7 +18,12 @@ export default function Navbar() {
 
   const goToFaq = () => {
     let faqDiv = document.getElementById("home_container-faq");
-    faqDiv?.scrollIntoView({ behavior: "smooth", block: "end" });
+    faqDiv?.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  const scrollToContact = () => {
+    let contactDiv = document.getElementById("footer_container_body-contact");
+    contactDiv?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
   return (
     <AppBar
@@ -32,6 +37,7 @@ export default function Navbar() {
         <Box className="navbar_tools-navigation">
           <Button onClick={() => navigate("/sign")}>Join Us</Button>
           <Button onClick={goToFaq}>FAQ</Button>
+          <Button onClick={scrollToContact}>Contact Us</Button>
         </Box>
         <IconButton
           sx={{ "&.MuiSvgIcon-root:hover": { backgroundColor: "white" } }}
