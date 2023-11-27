@@ -11,9 +11,6 @@ import {
   Container,
   Box,
   Typography,
-  List,
-  ListItem,
-  ListItemText,
   Accordion,
   AccordionSummary,
   AccordionDetails,
@@ -36,34 +33,108 @@ export default function Home() {
       <Navbar />
       <Box className="home_container">
         <Box className="home_container-welcome">
-          <Box>
-            <Typography variant="h4" fontWeight={700}>
-              Rear window is always smaller, than the front window
-            </Typography>
-            <Typography>
-              With this project, we seek the best opportunities for all of our
-              clientele
-            </Typography>
-          </Box>
-          <Box>
-            <Typography>Stack used</Typography>
-            <List>
-              <ListItem>
-                <ListItemText primary="React" />
-              </ListItem>
-              <ListItem>
-                <ListItemText primary="Mui" />
-              </ListItem>
-              <ListItem>
-                <ListItemText primary="Scss" />
-              </ListItem>
-              <ListItem>
-                <ListItemText primary="React-Hook-Forms" />
-              </ListItem>
-              <ListItem>
-                <ListItemText primary="React-Router-Dom" />
-              </ListItem>
-            </List>
+          <Typography variant="h3" fontWeight={700}>
+            Rear window is always smaller, than the front window
+          </Typography>
+          <Box className="home_container-welcome_stack">
+            <Box>
+              <Typography variant="h5" sx={{ mb: "30px", fontWeight: "600" }}>
+                Libraries used
+              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  flexDirection: "column",
+                }}
+              >
+                <Box className="library">
+                  <Box className="library_box">
+                    <img
+                      src="/react-hook-form-logo.svg"
+                      className="library_logo"
+                      id="library_logo"
+                    />
+                  </Box>
+                  <Typography className="library_name" id="library_name">
+                    React-Hook-Form
+                  </Typography>
+                </Box>
+                <Box className="library">
+                  <Box className="library_box">
+                    <img
+                      src={
+                        darkMode
+                          ? "/react-router-mark-color-inverted.svg"
+                          : "react-router-mark-color.svg"
+                      }
+                      alt="react-router-dom-icon"
+                      className="library_logo"
+                    />
+                  </Box>
+                  <Typography className="library_name">
+                    React-Router-Dom
+                  </Typography>
+                </Box>
+                <Box className="library">
+                  <Box className="library_box">
+                    <img src="/material-ui-logo.svg" className="library_logo" />
+                  </Box>
+                  <Typography className="library_name">MUI</Typography>
+                </Box>
+              </Box>
+            </Box>
+            <Box>
+              <Typography variant="h5" sx={{ mb: "30px", fontWeight: "600" }}>
+                Stack used
+              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  flexDirection: "column",
+                }}
+              >
+                <Box className="stack">
+                  <Box className="stack_box">
+                    <img
+                      src="/react-logo.svg"
+                      alt="react-logo"
+                      className="stack_logo"
+                    />
+                  </Box>
+                  <Typography className="stack_name" id="stack_name">
+                    React
+                  </Typography>
+                </Box>
+                <Box className="stack">
+                  <Box className="stack_box">
+                    <img
+                      src="/scss-logo.png"
+                      alt="scss-logo"
+                      className="stack_logo"
+                    />
+                  </Box>
+                  <Typography className="stack_name" id="stack_name">
+                    Scss
+                  </Typography>
+                </Box>
+                <Box className="stack">
+                  <Box className="stack_box">
+                    <img
+                      src="/vite.svg"
+                      alt="vite-logo"
+                      className="stack_logo"
+                    />
+                  </Box>
+                  <Typography className="stack_name" id="stack_name">
+                    Vite
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
           </Box>
         </Box>
         <Box className="home_container-goal" id="home_container-goal">

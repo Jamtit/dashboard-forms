@@ -1,4 +1,19 @@
 @use '../abstracts/variables' as variables;
+@use '../abstracts/mixins' as mixi;
+
+@keyframes spinningLogo{
+    from {transform: rotate(0deg)}
+    to {transform: rotate(360deg)}
+}
+
+@keyframes appearingNameFromLeft{
+    0%{opacity: 0;}
+    25%{opacity: 0; transform: translateX(-100px);}
+}
+@keyframes appearingNameFromRight{
+    0%{opacity: 0;}
+    40%{opacity: 0; transform: translateX(100px);}
+}
 
 .home{
     &_container{
@@ -9,7 +24,14 @@
 
         &-welcome{
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            padding-bottom: 30px;
+
+            &_stack{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+            }
         }
 
         &-goal{
@@ -33,6 +55,72 @@
             }
         }
 
+    }
+}
+
+
+.library, .stack{
+    display: grid;
+    width: 350px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "column1 column2";
+    justify-content: center;
+    align-items: center;
+    margin-block: 20px;
+
+    .MuiTypography-root{
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    &_box{
+       @include mixi.techLogoBox()
+    }
+
+
+    &_logo{
+        height: 55px;
+        width: 55px;
+    }
+
+    &_logo:hover{
+        animation-name: spinningLogo;
+        animation-duration: 1s;
+        animation-timing-function: ease-in;
+    }
+
+    &_box:hover + &_name{
+        display: block;
+    }
+
+}
+
+.stack{
+    &_name{
+        display: none;
+        animation-name: appearingNameFromRight;
+        animation-duration: 1s;
+        animation-timing-function: ease-in;
+
+        grid-area: column1;
+    }
+
+    &_box{
+        grid-area: column2;
+        margin-left: 35px;
+    }
+
+}
+
+.library{
+
+
+    &_name{
+        display: none;
+        font-size: 16px;
+        animation-name: appearingNameFromLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-in;
     }
 }
 

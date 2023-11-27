@@ -85,6 +85,32 @@ body {
   background-image: url("/wave_footer_dark.svg");
 }
 
+@keyframes spinningLogo {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes appearingNameFromLeft {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+}
+@keyframes appearingNameFromRight {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+}
 .home_container {
   margin-top: 12.5rem;
 }
@@ -92,6 +118,11 @@ body {
   height: 31.25rem;
 }
 .home_container-welcome {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  padding-bottom: 30px;
+}
+.home_container-welcome_stack {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -112,6 +143,61 @@ body {
   background-color: #41c124;
   color: white;
   text-align: left;
+}
+
+.library, .stack {
+  display: grid;
+  width: 350px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "column1 column2";
+  justify-content: center;
+  align-items: center;
+  margin-block: 20px;
+}
+.library .MuiTypography-root, .stack .MuiTypography-root {
+  font-size: 18px;
+  font-weight: 500;
+}
+.library_box, .stack_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  box-shadow: 9px 7px 34px -7px rgba(0, 0, 0, 0.85);
+}
+.library_logo, .stack_logo {
+  height: 55px;
+  width: 55px;
+}
+.library_logo:hover, .stack_logo:hover {
+  animation-name: spinningLogo;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+}
+.library_box:hover + .library_name, .library_box:hover + .stack_name, .stack_box:hover + .library_name, .stack_box:hover + .stack_name {
+  display: block;
+}
+
+.stack_name {
+  display: none;
+  animation-name: appearingNameFromRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  grid-area: column1;
+}
+.stack_box {
+  grid-area: column2;
+  margin-left: 35px;
+}
+
+.library_name {
+  display: none;
+  font-size: 16px;
+  animation-name: appearingNameFromLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
 }
 
 .wave {
