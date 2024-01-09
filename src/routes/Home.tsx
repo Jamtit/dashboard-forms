@@ -26,9 +26,11 @@ export default function Home() {
   let scrollButtonToTheTop = document.getElementById("home_button-top");
 
   function ButtonAppears() {
-    window.scrollY > 250
-      ? (scrollButtonToTheTop!.style.display = "flex")
-      : (scrollButtonToTheTop!.style.display = "none");
+    if (scrollButtonToTheTop) {
+      window.scrollY > 250
+        ? (scrollButtonToTheTop.style.display = "flex")
+        : (scrollButtonToTheTop.style.display = "none");
+    }
   }
 
   window.onscroll = () => ButtonAppears();
@@ -69,6 +71,7 @@ export default function Home() {
       >
         <ArrowUpwardOutlinedIcon sx={{ color: darkMode ? "white" : "black" }} />
       </Button>
+
       <Navbar />
       <Box className="home_container">
         <Box className="home_container-welcome">

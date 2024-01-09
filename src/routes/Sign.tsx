@@ -6,10 +6,10 @@ import { ModeContext } from "../App";
 import { useNavigate } from "react-router-dom";
 
 // React Hook Forms
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
 
 // Material
-import { Button, Box, Typography } from "@mui/material";
+import { Button, Box, Typography, TextField } from "@mui/material";
 
 //Icons
 import HomeIcon from "@mui/icons-material/Home";
@@ -25,6 +25,7 @@ export default function Sign() {
   const { darkMode } = useContext(ModeContext);
   const {
     register,
+    control,
     handleSubmit,
     formState: { isValid, errors },
   } = useForm<FormInputs>();
@@ -67,41 +68,66 @@ export default function Sign() {
           className={haveAccount ? "sign_form-in" : "sign_form-up"}
           onSubmit={handleSubmit(onSubmit)}
         >
-          <input
-            placeholder="sample@mail.com"
-            {...register("email", {
-              required: "Email is required",
-            })}
+          <Controller
+            name="email"
+            control={control}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                placeholder="sample@mail.com"
+                label="Email"
+                type="email"
+                helperText={errors.email?.message}
+              />
+            )}
           />
-          <p>{errors.email?.message}</p>
-          <input
-            placeholder="Password"
-            type="password"
-            {...register("password", {
-              required: "Password is required",
-              minLength: {
-                value: 8,
-                message: "The password must be at least 8 symbols long",
-              },
-            })}
+          <Controller
+            name="password"
+            control={control}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                label="Password"
+                type="password"
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: {
+                    value: 8,
+                    message: "The password must be at least 8 symbols long",
+                  },
+                })}
+                helperText={errors.password?.message}
+              />
+            )}
           />
-          <p>{errors.password?.message}</p>
+
           <Box className={haveAccount ? "sign_form-in_additional" : "sign-up"}>
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              {...register("confirmPassword", {
-                required: "Confirm your password",
-                minLength: {
-                  value: 8,
-                  message: "The password must be at least 8 symbols long",
-                },
-              })}
+            <Controller
+              name="confirmPassword"
+              control={control}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  label="Confirm Password"
+                  type="password"
+                  {...register("confirmPassword", {
+                    required: "Confirm your password",
+                    minLength: {
+                      value: 8,
+                      message: "The password must be at least 8 symbols long",
+                    },
+                  })}
+                  helperText={errors.confirmPassword?.message}
+                />
+              )}
             />
-            <p>{errors.confirmPassword?.message}</p>
           </Box>
           <Button
-            sx={{ color: `${darkMode ? "primary.main" : "secondary.main"}` }}
+            sx={{
+              color: `${darkMode ? "primary.main" : "secondary.main"}`,
+              mt: "20px",
+              height: "40px",
+            }}
             variant="outlined"
             type="submit"
             onClick={() => (isValid ? navigate("/user") : "")}

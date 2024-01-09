@@ -33,9 +33,29 @@ $paddingForm: 15px;
         justify-content: center;
         align-items: center;
         transition: transform 1s;
-        &-up{
-            color: red;
+
+        &-up, &-in{
+            display: flex;
+            flex-flow: column;
+
+            .MuiTextField-root{
+                margin-bottom: 20px;
+            }
         }
+
+        &-up{
+
+            .MuiOutlinedInput-root{
+                border-color: variables.$logBackground;
+                color: variables.$logBackground;
+            }
+            .MuiInputBase-input:focus{
+                border-color: variables.$logBackground;
+                color: variables.$logBackground;
+                
+            }
+        }
+
         &-in{
             // background-color: lightcoral;
             &_additional{

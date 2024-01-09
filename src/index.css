@@ -261,8 +261,20 @@ body {
   align-items: center;
   transition: transform 1s;
 }
-.sign_form-up, .sign_form-have-up {
-  color: red;
+.sign_form-up, .sign_form-in, .sign_form-have-up, .sign_form-have-in {
+  display: flex;
+  flex-flow: column;
+}
+.sign_form-up .MuiTextField-root, .sign_form-in .MuiTextField-root, .sign_form-have-up .MuiTextField-root, .sign_form-have-in .MuiTextField-root {
+  margin-bottom: 20px;
+}
+.sign_form-up .MuiOutlinedInput-root, .sign_form-have-up .MuiOutlinedInput-root {
+  border-color: #5f24b7;
+  color: #5f24b7;
+}
+.sign_form-up .MuiInputBase-input:focus, .sign_form-have-up .MuiInputBase-input:focus {
+  border-color: #5f24b7;
+  color: #5f24b7;
 }
 .sign_form-in_additional, .sign_form-have-in_additional {
   display: none;

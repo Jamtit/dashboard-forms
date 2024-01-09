@@ -13,4 +13,5 @@ This website was made to try and learn how to create more unique websites and cr
 
 ## TODO:
 
-- Create a button, that when you scroll it appears and can take you quickly to the top
+- Fix the form border color when you want to sign-up on the form.
+- Fix the scroll to top button not appearing at first, when the web loads
