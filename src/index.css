@@ -145,7 +145,8 @@ body {
   text-align: left;
 }
 
-.library, .stack {
+.library,
+.stack {
   display: grid;
   width: 350px;
   grid-template-columns: 1fr 1fr;
@@ -154,11 +155,13 @@ body {
   align-items: center;
   margin-block: 20px;
 }
-.library .MuiTypography-root, .stack .MuiTypography-root {
+.library .MuiTypography-root,
+.stack .MuiTypography-root {
   font-size: 18px;
   font-weight: 500;
 }
-.library_box, .stack_box {
+.library_box,
+.stack_box {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -167,16 +170,21 @@ body {
   border-radius: 50%;
   box-shadow: 9px 7px 34px -7px rgba(0, 0, 0, 0.85);
 }
-.library_logo, .stack_logo {
+.library_logo,
+.stack_logo {
   height: 55px;
   width: 55px;
 }
-.library_logo:hover, .stack_logo:hover {
+.library_logo:hover,
+.stack_logo:hover {
   animation-name: spinningLogo;
   animation-duration: 1s;
   animation-timing-function: ease-in;
 }
-.library_box:hover + .library_name, .library_box:hover + .stack_name, .stack_box:hover + .library_name, .stack_box:hover + .stack_name {
+.library_box:hover + .library_name,
+.library_box:hover + .stack_name,
+.stack_box:hover + .library_name,
+.stack_box:hover + .stack_name {
   display: block;
 }
 
@@ -224,7 +232,8 @@ body {
   background-image: url("/wave_goal_dark_bot.svg");
 }
 
-.goal-dark-bot, .goal-light-bot {
+.goal-dark-bot,
+.goal-light-bot {
   height: 18.75rem;
 }
 

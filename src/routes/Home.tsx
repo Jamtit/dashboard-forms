@@ -14,13 +14,32 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  Button,
 } from "@mui/material";
 
 //Icons
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ArrowUpwardOutlinedIcon from "@mui/icons-material/ArrowUpwardOutlined";
 
 export default function Home() {
   const { darkMode } = useContext(ModeContext);
+  let scrollButtonToTheTop = document.getElementById("home_button-top");
+
+  function ButtonAppears() {
+    window.scrollY > 250
+      ? (scrollButtonToTheTop!.style.display = "flex")
+      : (scrollButtonToTheTop!.style.display = "none");
+  }
+
+  window.onscroll = () => ButtonAppears();
+
+  function ScrollToTheTop() {
+    document.body.scrollIntoView({ behavior: "smooth", block: "start" });
+    document.documentElement.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
 
   return (
     <Container
@@ -30,6 +49,26 @@ export default function Home() {
         "@media (min-width: 600px)": { paddingRight: 0, paddingLeft: 0 },
       }}
     >
+      <Button
+        disableRipple
+        id="home_button-top"
+        className="home_button-top"
+        sx={{
+          display: "none",
+          position: "sticky",
+          left: "1800px",
+          top: "830px",
+          border: `${darkMode ? "white" : "black"} solid 2px`,
+          background: "linear-gradient(to right, #41C124, #5f24b7)",
+          zIndex: "44",
+          "&:hover": {
+            backgroundColor: "rgba(0, 0, 0, 0.7)",
+          },
+        }}
+        onClick={ScrollToTheTop}
+      >
+        <ArrowUpwardOutlinedIcon sx={{ color: darkMode ? "white" : "black" }} />
+      </Button>
       <Navbar />
       <Box className="home_container">
         <Box className="home_container-welcome">

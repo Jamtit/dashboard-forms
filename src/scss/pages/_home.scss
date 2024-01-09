@@ -1,40 +1,62 @@
 @use '../abstracts/variables' as variables;
 @use '../abstracts/mixins' as mixi;
 
-@keyframes spinningLogo{
-    from {transform: rotate(0deg)}
-    to {transform: rotate(360deg)}
+@keyframes spinningLogo {
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
 }
 
-@keyframes appearingNameFromLeft{
-    0%{opacity: 0;}
-    25%{opacity: 0; transform: translateX(-100px);}
-}
-@keyframes appearingNameFromRight{
-    0%{opacity: 0;}
-    40%{opacity: 0; transform: translateX(100px);}
+@keyframes appearingNameFromLeft {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
 }
 
-.home{
-    &_container{
+@keyframes appearingNameFromRight {
+    0% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+}
+
+.home {
+    
+
+    &_container {
         margin-top: 12.5rem;
-        &-goal, &-faq{
+
+        &-goal,
+        &-faq {
             height: 31.25rem;
         }
 
-        &-welcome{
+        &-welcome {
             display: grid;
             grid-template-rows: 1fr 1fr;
             padding-bottom: 30px;
 
-            &_stack{
+            &_stack {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
 
             }
         }
 
-        &-goal{
+        &-goal {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -42,13 +64,13 @@
             background-color: variables.$regBackground;
         }
 
-        &-faq{
+        &-faq {
             display: grid;
             place-content: center;
             padding-block: 1.875rem;
             margin-block: 5.625rem;
 
-            .MuiAccordionDetails-root{
+            .MuiAccordionDetails-root {
                 background-color: variables.$regBackground;
                 color: white;
                 text-align: left;
@@ -56,10 +78,12 @@
         }
 
     }
+   
 }
 
 
-.library, .stack{
+.library,
+.stack {
     display: grid;
     width: 350px;
     grid-template-columns: 1fr 1fr;
@@ -68,35 +92,35 @@
     align-items: center;
     margin-block: 20px;
 
-    .MuiTypography-root{
+    .MuiTypography-root {
         font-size: 18px;
         font-weight: 500;
     }
 
-    &_box{
-       @include mixi.techLogoBox()
+    &_box {
+        @include mixi.techLogoBox()
     }
 
 
-    &_logo{
+    &_logo {
         height: 55px;
         width: 55px;
     }
 
-    &_logo:hover{
+    &_logo:hover {
         animation-name: spinningLogo;
         animation-duration: 1s;
         animation-timing-function: ease-in;
     }
 
-    &_box:hover + &_name{
+    &_box:hover+&_name {
         display: block;
     }
 
 }
 
-.stack{
-    &_name{
+.stack {
+    &_name {
         display: none;
         animation-name: appearingNameFromRight;
         animation-duration: 1s;
@@ -105,17 +129,17 @@
         grid-area: column1;
     }
 
-    &_box{
+    &_box {
         grid-area: column2;
         margin-left: 35px;
     }
 
 }
 
-.library{
+.library {
 
 
-    &_name{
+    &_name {
         display: none;
         font-size: 16px;
         animation-name: appearingNameFromLeft;
@@ -125,28 +149,31 @@
 }
 
 
-.wave{
+.wave {
     aspect-ratio: 900/200;
     width: 100%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
-.goal-light{
+
+.goal-light {
     background-image: url('/wave_goal_light.svg');
 }
-.goal-dark{
+
+.goal-dark {
     background-image: url('/wave_goal_dark.svg');
 }
 
-.goal-light-bot{
+.goal-light-bot {
     background-image: url('/wave_goal_light_bot.svg');
 }
-.goal-dark-bot{
+
+.goal-dark-bot {
     background-image: url('/wave_goal_dark_bot.svg');
 }
 
-.goal-dark-bot, .goal-light-bot{
+.goal-dark-bot,
+.goal-light-bot {
     height: 18.75rem;
 }
-
